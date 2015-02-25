@@ -2,6 +2,7 @@
 
 var fb = new Firebase('https://xogame.firebaseio.com/');
 var isPlayer1Turn = true;
+var turns = 0;
 
 
 /*$('form').submit(function(event){
@@ -10,6 +11,7 @@ var isPlayer1Turn = true;
 	fb.push(newPlayer);
 	event.preventDefault();
 })*/
+
 $('form').submit(function(event){
 	var i = 1;
 	i += 1;
@@ -18,25 +20,35 @@ $('form').submit(function(event){
 	event.preventDefault();
 })
 
+// Makes game table appear on page
+
 $('button').click(function(){
   $('.hidden').show();
   $('button').hide();
 });
 
-/*$('td').on('click', function(event) {
-	var $target = $(event.target);
-	$target.append('x');
-});*/
+// Swaps between players and tracks # of turns taken
 
 $('td').one('click', function() {
-  if (isPlayer1Turn) {
-    $(this).append("X");
+  if (isPlayer1Turn === true) {
+    $(this).append('<img src="/img/taco.jpg" height="100px" width="100px">');
     isPlayer1Turn = false;
   } else {
-    $(this).append("O");
+    $(this).append('<img src="/img/burrito.jpg" height="100px" width="100px">');
     isPlayer1Turn = true;
-  }
+  };
+  turns += 1;
+  checkTurn();
 });
+
+
+// Looks at the number of turns to determine game over
+
+function checkTurn(){
+	if(turns === 9){
+		$('.message').append($('<h1>GAME OVER</h1>'));
+	};
+}
 
 
 
