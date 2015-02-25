@@ -2,8 +2,11 @@
 
 var fb = new Firebase('https://tictacohno.firebaseio.com/');
 
-$(document).ready(function () {
-
+$('form').submit(function(event){
+	var name = $('.name').val();
+	var newPlayer = ({Game: 'Player1'});
+	fb.push(newPlayer);
+	event.preventDefault();
 })
 
 $('button').click(function(){

@@ -12,7 +12,10 @@ html(lang='en-US')
       .container
         h1 TicTaco
 
-        button Start New Game
+        button PLAY!
+        form.hidden
+          input.name(type="text" placeholder="Enter Your Name")
+          input(type="submit" value="Start New Game")
         table.hidden
             tr
               td
