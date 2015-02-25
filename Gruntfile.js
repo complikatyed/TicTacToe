@@ -135,3 +135,31 @@ module.exports = function (grunt) {
         tasks: ['sass', 'autoprefixer']
       }
     },
+
+    wiredep: {
+      build: {
+        src: ['public/**/*.html']
+      }
+    }
+  });
+
+  grunt.registerTask('default', []);
+  grunt.registerTask('build', ['setup', 'combineJs']);
+  grunt.registerTask('serve', ['setup', 'connect', 'watch']);
+  grunt.registerTask('setup', [
+    'clean',
+    'copy',
+    'jade',
+    'sass',
+    'autoprefixer',
+    'wiredep'
+  ]);
+  grunt.registerTask('combineJs', [
+    'useminPrepare',
+    'concat:generated',
+    'uglify:generated',
+    'usemin',
+    'concat:iife',
+    'clean:temp'
+  ]);
+};
