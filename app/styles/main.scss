@@ -1,13 +1,27 @@
+body {
+  background-color: #04B431;
+}
+
+
 h1 {
-  color: steelblue;
+  color: #FFBF00;
 }
 
 td {
   border: 1px solid black;
-  font-size: 4em;
-  width: 100px;
-  height: 100px;
-  text-align: center;
+  width: 90px;
+  height: 90px;
+  padding-bottom: -5px;
+}
+
+tr {
+  vertical-align: middle;
+}
+
+
+img {
+  padding: 0;
+  margin: 0;
 }
 
 .hidden {
@@ -15,6 +29,6 @@ td {
 }
 
 table {
-	margin-left: auto;
-	margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
