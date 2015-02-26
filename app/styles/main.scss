@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Taco Box;
+  src: url(TACOBOX_.TTF);
+}
+
 body {
   background-color: #224EBC;
   //background-color: #04B431;
@@ -62,7 +67,7 @@ td {
   height: 110px;
   padding: 7px 7px 2px 7px;
   background-color: #FFBF00;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 tr {
