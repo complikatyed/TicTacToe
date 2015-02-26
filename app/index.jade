@@ -10,11 +10,12 @@ html(lang='en-US')
       <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
       .message
       .container
-        h1.title Tic Taco
 
-        button.play PLAY!
-        replay.hidden PLAY AGAIN!
-
+        h1.title TIC-TACO
+        .buttondiv
+          button PLAY
+        form.hidden
+          input.start(type="submit" value="New Game")
         table.hidden
             tr
               td.a1

@@ -5,15 +5,15 @@ var isPlayer1Turn = true;
 var p1Win = false;
 var p2Win = false;
 var turns = 0;
-var a1;
-var a2;
-var a3;
-var b1;
-var b2;
-var b3;
-var c1;
-var c2;
-var c3;
+var a1; // cell 0 (left cell in top row)
+var a2; // cell 1
+var a3; // cell 2
+var b1; // cell 3 (left cell in middle row)
+var b2; // cell 4
+var b3; // cell 5
+var c1; // cell 6 (left cell in bottom row)
+var c2; // cell 7
+var c3; // cell 8
 
 
 // Monitors game play, switches between players & looks for win to end game
@@ -34,7 +34,8 @@ $('td').one('click', function(){
   }
 });
 
-// Converts table cell variables into jQuery objects
+
+// Converts cell position variables to jQuery objects
 function boardCheck() {
     a1 = $('.a1').html();
     a2 = $('.a2').html();
@@ -60,7 +61,9 @@ function checkWinner(){
     (a3 == b2 && a3 == c1 && (a3 == player1)) //diagonal 2
     ){ p1Win = true;
        $('.message').append($('<h1>TACOS FOR THE WIN!</h1>'));
-       $('.title').hide();  }
+       //$('table').hide();
+       $('.title').hide();
+       $('.start').show(); }
     // Checks if player2 (Burritos) won
     else if ((a1 == a2 && a1 == a3 && (a1 == player2)) || //first row
     (b1 == b2 && b1 == b3 && (b1 == player2)) || //second row
@@ -71,26 +74,26 @@ function checkWinner(){
     (a1 == b2 && a1 == c3 && (a1 == player2)) || //diagonal 1
     (a3 == b2 && a3 == c1 && (a3 == player2)) //diagonal 2
     ){ p2Win = true;
-      $('.message').append($('<h1>BURRITOS FOR THE WIN!</h1>'));
-      $('.title').hide();  }
+      $('.message').append($('<h1>BURRITOS FOR THE WIN!</h1>')); 
+      //$('table').hide();
+      $('.title').hide();
+      $('.start').show(); }
   }
 
-// Checks for a tie game and appends message
+// Checks for a tie game and appends message & taco image
 function checkTie(){
   if(turns === 9 && p1Win == false && p2Win == false){
     $('.message').append($('<h1>TIE GAME!</h1>'));
+    $('table').empty();
     $('.title').hide();
+    $('.message').append($('<div class="gameoverImg"><img src="https://s-media-cache-ak0.pinimg.com/236x/04/93/c1/0493c184b0efb97d3dee513fae63cb2c.jpg"></img></div>'));
+    $('.start').show();
   }
 }
 
 // Makes game table appear on page
-$('.play').click(function(){
+$('button').click(function(){
   $('.hidden').show();
-  $('.play').hide();
-});
-
-// Replay button - refreshes table for new game
-
-$('replay').click(function() {
-  location.reload();
+  $('button').hide();
+  $('.start').hide();
 });
