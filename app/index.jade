@@ -12,8 +12,7 @@ html(lang='en-US')
       .container
 
         h1.title TIC-TACO
-        form.hidden
-          input.start(type="submit" value="New Game")
+
         table.hidden
             tr
               td.a1
@@ -27,6 +26,8 @@ html(lang='en-US')
               td.c1
               td.c2
               td.c3
+        form.hidden
+          input.start(type="submit" value="New Game")
 
       // build:js js/vendor.min.js
       // bower:js
