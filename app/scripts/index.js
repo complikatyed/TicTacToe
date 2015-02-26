@@ -5,7 +5,7 @@ var isPlayer1Turn = true;
 var turns = 0;
 var xMoves = [];
 var oMoves = [];
-var possibleWins = ['0', '1', '2'];
+var possibleWins = ['topL', 'topM', 'topR'];
 var winString = JSON.stringify(possibleWins);
 
 var fb = new Firebase('https://tictacohno.firebaseio.com/');
@@ -18,7 +18,7 @@ $('button').click(function(){
 $('td').one('click', function(){
   if (isPlayer1Turn === true){
   	$(this).append(player1);
-  	xMoves = xMoves.[$(this).attr('class')];
+  	xMoves = xMoves.concat($(this).attr('class'));
     isPlayer1Turn = false;
     turns += 1;
     checkWinner();
