@@ -48,6 +48,7 @@ function boardCheck() {
     c3 = $('.c3').html();
 };
 
+
 function checkWinner(){
 	boardCheck();
 	// Checks if player1 (Tacos) won
@@ -61,7 +62,7 @@ function checkWinner(){
     (a3 == b2 && a3 == c1 && (a3 == player1)) //diagonal 2
     ){ p1Win = true;
        $('.message').append($('<h1>TACOS FOR THE WIN!</h1>'));
-       //$('table').hide();
+       //$('table').empty();
        $('.title').hide();
        $('.start').show(); }
     // Checks if player2 (Burritos) won
@@ -75,7 +76,7 @@ function checkWinner(){
     (a3 == b2 && a3 == c1 && (a3 == player2)) //diagonal 2
     ){ p2Win = true;
       $('.message').append($('<h1>BURRITOS FOR THE WIN!</h1>')); 
-      //$('table').hide();
+      //$('table').empty();
       $('.title').hide();
       $('.start').show(); }
   }
@@ -90,10 +91,3 @@ function checkTie(){
     $('.start').show();
   }
 }
-
-// Makes game table appear on page
-$('button').click(function(){
-  $('.hidden').show();
-  $('button').hide();
-  $('.start').hide();
-});
