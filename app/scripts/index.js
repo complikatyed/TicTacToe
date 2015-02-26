@@ -1,34 +1,23 @@
-'use strict'
+'use strict';
 
 var fb = new Firebase('https://xogame.firebaseio.com/');
 var isPlayer1Turn = true;
 var turns = 0;
 
 
-/*$('form').submit(function(event){
-	var name = $('.name').val();
-	var newPlayer = ({Game: 'Player1'});
-	fb.push(newPlayer);
-	event.preventDefault();
-})*/
-
-$('form').submit(function(event){
-	var i = 1;
-	i += 1;
-	var newGame = ({Games: 'Game'+ i});
-	fb.push(newGame);
-	event.preventDefault();
-})
-
 // Makes game table appear on page
-
-$('button').click(function(){
+$('.play').click(function(){
   $('.hidden').show();
-  $('button').hide();
+  $('.play').hide();
+});
+
+// Replay button - refreshes table for new game
+
+$('replay').click(function() {
+  location.reload();
 });
 
 // Swaps between players and tracks # of turns taken
-
 $('td').one('click', function() {
   if (isPlayer1Turn === true) {
     $(this).append('<img src="/img/taco.jpg" height="100px" width="100px">');
@@ -42,8 +31,7 @@ $('td').one('click', function() {
 });
 
 
-// Looks at the number of turns to determine game over
-
+// Tracks the number of turns to determine game over
 function checkTurn(){
 	if(turns === 9){
 		$('.message').append($('<h1>GAME OVER</h1>'));
@@ -51,6 +39,20 @@ function checkTurn(){
 }
 
 
+/*$('form').submit(function(event){
+	var name = $('.name').val();
+	var newPlayer = ({Game: 'Player1'});
+	fb.push(newPlayer);
+	event.preventDefault();
+})*/
+
+/*$('form').submit(function(event){
+	var i = 1;
+	i += 1;
+	var newGame = ({Games: 'Game'+ i});
+	fb.push(newGame);
+	event.preventDefault();
+})*/
 
 //function placePlayer(){
 	//query the firebase

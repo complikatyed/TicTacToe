@@ -17,15 +17,17 @@ h1 {
 // "Play!" button
 
 .play,
-#newGame {
+replay {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 25px;
   width: 150px;
   color: tomato;
+  background-color: white;
   font-weight: bold;
   font-size: 1em;
+  text-align: center;
 }
 
 
