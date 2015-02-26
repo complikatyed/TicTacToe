@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Taco Box;
+  src: url(../TACOBOX_.TTF);
+}
+
 body {
   background-color: #224EBC;
   //background-color: #04B431;
@@ -16,14 +21,14 @@ h1 {
   text-align: center;
   //font-family: "Big Caslon","Book Antiqua","Palatino Linotype",Georgia,serif;
   //font-size: 4em;
-  font-family: Taco Box, Taco Modern, Mexican fiesta, El Rio Lobo, sans-serif;
+  font-family: Taco Box, sans-serif;
   font-size: 4em;
   margin-top: 25px;
   margin-bottom: 50px;
 }
 
 .message h1 {
-  font-family: El Rio Lobo, sans-serif;
+  font-family: Taco Box, sans-serif;
 }
 
 // "Play!" button
@@ -62,7 +67,7 @@ td {
   height: 110px;
   padding: 7px 7px 2px 7px;
   background-color: #FFBF00;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 tr {
@@ -92,7 +97,7 @@ button, .start {
   display: block;
   padding: 10px;
   background-color: #FFBF00;
-  font-family: El Rio Lobo, sans-serif;
+  font-family: sans-serif;
   color: red;
   font-size: 2em;
   border-radius: 1em;
