@@ -5,35 +5,36 @@ var isPlayer1Turn = true;
 var xWin = false;
 var oWin = false;
 var turns = 0;
-var a1;
-var a2;
-var a3;
-var b1;
-var b2;
-var b3;
-var c1;
-var c2;
-var c3;
+var a1; // cell 0 (left cell in top row)
+var a2; // cell 1
+var a3; // cell 2
+var b1; // cell 3 (left cell in middle row)
+var b2; // cell 4
+var b3; // cell 5
+var c1; // cell 6 (left cell in bottom row)
+var c2; // cell 7
+var c3; // cell 8
 
 
-
+// Tracks game play, switches between players, and looks for win or tie game.
 $('td').one('click', function(){
-  if (isPlayer1Turn === true && xWin == false && oWin == false){
+  if (isPlayer1Turn === true && p1Win == false && p2Win == false){
   	$(this).append(player1);
     isPlayer1Turn = false;
     turns += 1;
     checkWinner();
-    checkTurn();
+    checkTie();
   }
-  else if(isPlayer1Turn == false && xWin == false && oWin == false) {
+  else if(isPlayer1Turn == false && p1Win == false && p2Win == false) {
   	$(this).append(player2)
     isPlayer1Turn = true;
     turns += 1;
     checkWinner();
-    checkTurn();
+    checkTie();
   }
 });
 
+// Converts cell position variables to jQuery objects
 function boardCheck() {
     a1 = $('.a1').html();
     a2 = $('.a2').html();
@@ -48,7 +49,7 @@ function boardCheck() {
 
 function checkWinner(){
 	boardCheck();
-	// CHECKS IF X WON
+	// Checks to see if player1 wins
     if ((a1 == a2 && a1 == a3 && (a1 == player1)) || //first row
     (b1 == b2 && b1 == b3 && (b1 == player1)) || //second row
     (c1 == c2 && c1 == c3 && (c1 == player1)) || //third row
@@ -57,9 +58,10 @@ function checkWinner(){
     (a3 == b3 && a3 == c3 && (a3 == player1)) || //third column
     (a1 == b2 && a1 == c3 && (a1 == player1)) || //diagonal 1
     (a3 == b2 && a3 == c1 && (a3 == player1)) //diagonal 2
-    ){ xWin = true;
+    ){ p1Win = true;
        $('.message').append($('<h1>TACOS FOR THE WIN!</h1>'));
        $('.title').hide();  }
+  // Checks to see if player2 wins
     else if ((a1 == a2 && a1 == a3 && (a1 == player2)) || //first row
     (b1 == b2 && b1 == b3 && (b1 == player2)) || //second row
     (c1 == c2 && c1 == c3 && (c1 == player2)) || //third row
@@ -68,20 +70,19 @@ function checkWinner(){
     (a3 == b3 && a3 == c3 && (a3 == player2)) || //third column
     (a1 == b2 && a1 == c3 && (a1 == player2)) || //diagonal 1
     (a3 == b2 && a3 == c1 && (a3 == player2)) //diagonal 2
-    ){ oWin = true;
+    ){ p2Win = true;
       $('.message').append($('<h1>BURRITOS FOR THE WIN!</h1>'));
       $('.title').hide();  }
   }
 
 
-
-function checkTurn(){
-  if(turns === 9 && xWin == false && owin == false){
+// Checks for a tie game after nine turns
+function checkTie(){
+  if(turns === 9 && p1Win == false && p2Win == false){
     $('.message').append($('<h1>TIE GAME!</h1>'));
     $('.title').hide();
   }
 }
-
 
 // Makes game table appear on page
 $('.play').click(function(){
@@ -90,7 +91,47 @@ $('.play').click(function(){
 });
 
 // Replay button - refreshes table for new game
+// We DEFINIELY NEED Margaret's version here.
 
 $('replay').click(function() {
   location.reload();
 });
+
+//////////////////////////////////////////
+// The code below is Margaret's branch. //
+// Some is duplicated above, but since  //
+// we'll need a bunch of it later, I'm  //
+// only commenting it all out for now.  //
+//////////////////////////////////////////
+
+/*$('button').click(function(){
+  $('.hidden').show();
+  $('button').hide();
+  $('.start').hide();
+});
+
+$('td').one('click', function(){
+  if (isPlayer1Turn === true){
+    $(this).append(player1);
+    isPlayer1Turn = false;
+    turns += 1;
+    checkTurn();
+  }
+  else {
+    $(this).append(player2)
+    isPlayer1Turn = true;
+    turns += 1;
+    checkTurn();
+  }
+});
+
+function checkTurn(){
+  if(turns === 9){
+    $('.message').append($('<h1>GAME OVER</h1>'));
+    $('.message').append($('<div class="gameoverImg"><img src="https://s-media-cache-ak0.pinimg.com/236x/04/93/c1/0493c184b0efb97d3dee513fae63cb2c.jpg"></img></div>'));
+    $('table').hide();
+    $('.title').hide();
+    $('.start').show();
+  }
+}*/
+
