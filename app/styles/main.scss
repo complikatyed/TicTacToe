@@ -10,7 +10,6 @@ body {
 }
 
 
-
 // Combo version (KMR font styling commented out)
 h1 {
   color: #FFBF00;
@@ -18,7 +17,7 @@ h1 {
   //font-family: "Big Caslon","Book Antiqua","Palatino Linotype",Georgia,serif;
   //font-size: 4em;
   font-family: Taco Box, Taco Modern, Mexican fiesta, El Rio Lobo, sans-serif;
-  font-size: 6em;
+  font-size: 4em;
   margin-top: 25px;
   margin-bottom: 50px;
 }
@@ -26,7 +25,6 @@ h1 {
 .message h1 {
   font-family: El Rio Lobo, sans-serif;
 }
-
 
 // "Play!" button
 .play,
@@ -48,23 +46,24 @@ table {
   margin-right: auto;
 }
 
-// MC version
+/* // MC version
 td {
   border: 1px solid red;
   width: 110px;
   height: 110px;
   padding-bottom: -5px;
-  background-color: #FFBF00;
-}
+  //background-color: #FFBF00;
+} */
 
-/* //KMR version
+//KMR version
 td {
-  border: 1px solid black;
-  width: 90px;
-  height: 90px;
+  border: 2px solid #04B431;
+  width: 110px;
+  height: 110px;
   padding: 7px 7px 2px 7px;
-  overflow: hidden; */
-
+  background-color: #FFBF00;
+  overflow: hidden; 
+}
 
 tr {
   vertical-align: middle;

@@ -2,8 +2,8 @@
 var player1 = '<img src="/img/taco.jpg" height="100px" width="100px">';
 var player2 = '<img src="/img/burrito.jpg" height="100px" width="100px">';
 var isPlayer1Turn = true;
-var xWin = false;
-var oWin = false;
+var p1Win = false;
+var p2Win = false;
 var turns = 0;
 var a1; // cell 0 (left cell in top row)
 var a2; // cell 1
@@ -60,7 +60,9 @@ function checkWinner(){
     (a3 == b2 && a3 == c1 && (a3 == player1)) //diagonal 2
     ){ p1Win = true;
        $('.message').append($('<h1>TACOS FOR THE WIN!</h1>'));
-       $('.title').hide();  }
+       $('table').empty();
+       $('.title').hide();
+       $('.start').show(); }
   // Checks to see if player2 wins
     else if ((a1 == a2 && a1 == a3 && (a1 == player2)) || //first row
     (b1 == b2 && b1 == b3 && (b1 == player2)) || //second row
@@ -71,8 +73,10 @@ function checkWinner(){
     (a1 == b2 && a1 == c3 && (a1 == player2)) || //diagonal 1
     (a3 == b2 && a3 == c1 && (a3 == player2)) //diagonal 2
     ){ p2Win = true;
-      $('.message').append($('<h1>BURRITOS FOR THE WIN!</h1>'));
-      $('.title').hide();  }
+      $('.message').append($('<h1>BURRITOS FOR THE WIN!</h1>')); 
+      $('table').empty();
+      $('.title').hide();
+      $('.start').show(); }
   }
 
 
@@ -80,22 +84,21 @@ function checkWinner(){
 function checkTie(){
   if(turns === 9 && p1Win == false && p2Win == false){
     $('.message').append($('<h1>TIE GAME!</h1>'));
+    $('table').empty();
     $('.title').hide();
+    $('.message').append($('<div class="gameoverImg"><img src="https://s-media-cache-ak0.pinimg.com/236x/04/93/c1/0493c184b0efb97d3dee513fae63cb2c.jpg"></img></div>'));
+    $('.start').show();
   }
 }
 
+
 // Makes game table appear on page
-$('.play').click(function(){
+$('button').click(function(){
   $('.hidden').show();
-  $('.play').hide();
+  $('button').hide();
+  $('.start').hide();
 });
 
-// Replay button - refreshes table for new game
-// We DEFINIELY NEED Margaret's version here.
-
-$('replay').click(function() {
-  location.reload();
-});
 
 //////////////////////////////////////////
 // The code below is Margaret's branch. //
@@ -104,11 +107,7 @@ $('replay').click(function() {
 // only commenting it all out for now.  //
 //////////////////////////////////////////
 
-/*$('button').click(function(){
-  $('.hidden').show();
-  $('button').hide();
-  $('.start').hide();
-});
+/*
 
 $('td').one('click', function(){
   if (isPlayer1Turn === true){
