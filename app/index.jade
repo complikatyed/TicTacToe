@@ -8,27 +8,26 @@ html(lang='en-US')
     link(rel='stylesheet', href='css/main.css')
   body
       <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
+      .message
       .container
-        h1 TicTaco
-
-        button PLAY!
+        h1.title TIC-TACO
+        .buttondiv
+          button PLAY
         form.hidden
-          input.name(type="text" placeholder="Enter Your Name")
-          input(type="submit" value="Start New Game")
+          input.start(type="submit" value="New Game")
         table.hidden
             tr
-              td(class=0)
-              td(class=1)
-              td(class=2)
+              td
+              td
+              td
             tr
-              td(class=3)
-              td(class=4)
-              td(class=5)
+              td
+              td
+              td
             tr
-              td(class=6)
-              td(class=7)
-              td(class=8)
+              td
+              td
+              td
 
       // build:js js/vendor.min.js
       // bower:js
