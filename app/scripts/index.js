@@ -47,6 +47,7 @@ function boardCheck() {
     c3 = $('.c3').html();
 };
 
+
 function checkWinner(){
 	boardCheck();
 	// Checks to see if player1 wins
@@ -91,46 +92,4 @@ function checkTie(){
   }
 }
 
-
-// Makes game table appear on page
-$('button').click(function(){
-  $('.hidden').show();
-  $('button').hide();
-  $('.start').hide();
-});
-
-
-//////////////////////////////////////////
-// The code below is Margaret's branch. //
-// Some is duplicated above, but since  //
-// we'll need a bunch of it later, I'm  //
-// only commenting it all out for now.  //
-//////////////////////////////////////////
-
-/*
-
-$('td').one('click', function(){
-  if (isPlayer1Turn === true){
-    $(this).append(player1);
-    isPlayer1Turn = false;
-    turns += 1;
-    checkTurn();
-  }
-  else {
-    $(this).append(player2)
-    isPlayer1Turn = true;
-    turns += 1;
-    checkTurn();
-  }
-});
-
-function checkTurn(){
-  if(turns === 9){
-    $('.message').append($('<h1>GAME OVER</h1>'));
-    $('.message').append($('<div class="gameoverImg"><img src="https://s-media-cache-ak0.pinimg.com/236x/04/93/c1/0493c184b0efb97d3dee513fae63cb2c.jpg"></img></div>'));
-    $('table').hide();
-    $('.title').hide();
-    $('.start').show();
-  }
-}*/
 
