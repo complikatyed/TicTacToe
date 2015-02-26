@@ -60,7 +60,7 @@ function checkWinner(){
     (a3 == b2 && a3 == c1 && (a3 == player1)) //diagonal 2
     ){ p1Win = true;
        $('.message').append($('<h1>TACOS FOR THE WIN!</h1>'));
-       $('table').empty();
+       //$('table').empty();
        $('.title').hide();
        $('.start').show(); }
   // Checks to see if player2 wins
@@ -74,7 +74,7 @@ function checkWinner(){
     (a3 == b2 && a3 == c1 && (a3 == player2)) //diagonal 2
     ){ p2Win = true;
       $('.message').append($('<h1>BURRITOS FOR THE WIN!</h1>')); 
-      $('table').empty();
+      //$('table').empty();
       $('.title').hide();
       $('.start').show(); }
   }
