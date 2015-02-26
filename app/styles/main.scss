@@ -1,34 +1,45 @@
 body {
-  background-color: #04B431;
-}
-
-
-h1 {
-  color: #FFBF00;
-}
-
-td {
-  border: 1px solid black;
-  width: 90px;
-  height: 90px;
-  padding-bottom: -5px;
-}
-
-tr {
-  vertical-align: middle;
-}
-
-
-img {
-  padding: 0;
-  margin: 0;
+  background-color: #224EBC;
 }
 
 .hidden {
   display: none;
 }
 
+h1 {
+  color: #FFBF00;
+  text-align: center;
+  font-family: "Big Caslon","Book Antiqua","Palatino Linotype",Georgia,serif;
+  font-size: 4em;
+}
+
+
+// "Play!" button
+
+.play,
+#newGame {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  width: 150px;
+  color: tomato;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+
+// Table (play board) styling
+
 table {
   margin-left: auto;
   margin-right: auto;
+}
+
+td {
+  border: 1px solid black;
+  width: 90px;
+  height: 90px;
+  padding: 7px 7px 2px 7px;
+  overflow: hidden;
 }

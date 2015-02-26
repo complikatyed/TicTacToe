@@ -4,18 +4,18 @@ html(lang='en-US')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    title My Title
+    title Tic Taco
     link(rel='stylesheet', href='css/main.css')
   body
       <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
       .container
-        h1 Tic-Taco
+        h1 Tic Taco
 
-        button PLAY!
+        button.play PLAY!
         form.hidden
-          input.name(type="text" placeholder="Enter Your Name")
-          input(type="submit" value="Start New Game")
+          <!-- input.name(type="text" placeholder="Enter Your Name") -->
+          input(type="submit" id="newGame" value="Start New Game")
         table.hidden
             tr
               td.zero
