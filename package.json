@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/complikatyed/tictactoe",
   "dependencies": {
+    "node-sass": "^3.7.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
