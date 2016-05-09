@@ -1,11 +1,5 @@
-/////////////////////////////////////////////////////
-//                                                 //
-//   Updating code to reflect Scott's suggestions  //
-//   re:  dividing functions into smaller pieces   //
-//                                                 //
-/////////////////////////////////////////////////////
-
 'use strict';
+
 var player1 = '<img src="/img/taco.jpg" height="100px" width="100px">';
 var player2 = '<img src="/img/burrito.jpg" height="100px" width="100px">';
 
@@ -26,24 +20,20 @@ var c3; // cell 8
 
 var burritoWin = $('<h1>BURRITOS FOR THE WIN!</h1>');
 var tacoWin = $('<h1>TACOS FOR THE WIN!</h1>');
-var tieImage = $('<div class="gameoverImg"><img src="https://s-media-cache-ak0.pinimg.com/236x/04/93/c1/0493c184b0efb97d3dee513fae63cb2c.jpg"></img></div>');
 var tieWords = $('<h1>TIE GAME!</h1>');
-var tieMessage = tieWords + tieImage;
 
 // Monitors game play, switches between players & looks for win to end game
 $('td').one('click', function(){
   if (isPlayer1Turn === true && p1Win == false && p2Win == false){
-   $(this).append(player1); // this could be a firebase send
+   $(this).append(player1);
     isPlayer1Turn = false;
   }
   else if(isPlayer1Turn == false && p1Win == false && p2Win == false) {
-   $(this).append(player2); // this could be a firebase send
+   $(this).append(player2);
     isPlayer1Turn = true;
   }
   turns += 1;
   checkWinner();
-
-// In my version of this function, there is also a firebase update for the board.
 
 });
 
@@ -89,14 +79,14 @@ function checkWinner(){
       gameResultMessage(burritoWin);
     }
     else if(turns === 9 && p1Win === false && p2Win === false) {
-      gameResultMessage(tieMessage);
+      gameResultMessage(tieWords);
     }
 }
 
 // Functions that append to the DOM
-np
+
 function gameResultMessage(message) {
-  $('.message').append(message); 
+  $('.message').append(message);
   $('.title').hide();
   $('.start').show();
   $('.table').empty();
